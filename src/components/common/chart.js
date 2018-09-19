@@ -22,14 +22,19 @@ class Chart extends React.Component {
   render(){
     return(
       <View style={styles.container}>
-          <VictoryChart width={350} theme={VictoryTheme.material}>
-              <VictoryStack colorScale={"blue"} >
-                    <VictoryArea
-                      data={data}
-                      interpolation={"basis"}
-                    />
-              </VictoryStack>
-          </VictoryChart>
+          <View  style={{ zIndex: 0 }}>
+            <VictoryChart width={350} theme={VictoryTheme.material}>
+                <VictoryStack colorScale={"blue"} >
+                      <VictoryArea
+                        data={data}
+                        interpolation={"basis"}
+                      />
+                </VictoryStack>
+            </VictoryChart>
+          </View>
+
+          <View style={{ zIndex: 1, position: "absolute", height: "100%", width: "100%" }}>
+          </View>
       </View>
     )
   }
@@ -40,8 +45,9 @@ const styles = {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f5fcff",
-    height: 305
+    // backgroundColor: "#f5fcff",
+    height: 305, 
+    position: "relative"
   }
 };
 

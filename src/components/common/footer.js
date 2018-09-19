@@ -25,7 +25,7 @@ class Footer extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Water") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 48, width: 32 }}
+              style={{ height: 48, width: 33 }}
               source={require('../../assets/icons/watericon.png')}
             />
         </TouchableOpacity>
