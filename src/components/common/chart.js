@@ -2,43 +2,31 @@ import React from "react";
 import { View } from "react-native";
 import { VictoryStack, VictoryChart, VictoryTheme, VictoryArea } from "victory-native";
 
-
-const data = [
-  { x: "Aug", y: 5 },
-  { x: "Sept", y: 10 },
-  { x: "Nov", y: 7 },
-  { x: "Dec", y: 15 },
-  { x: "Jan", y: 1 },
-  { x: "Feb", y: 9 },
-  { x: "March", y: 10 },
-  { x: "April", y: 9 },
-];
-
 class Chart extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
-  
-  render(){
-    return(
-      <View style={styles.container}>
-          <View  style={{ zIndex: 0 }}>
-            <VictoryChart width={350} theme={VictoryTheme.material}>
-                <VictoryStack colorScale={"blue"} >
-                      <VictoryArea
-                        data={data}
-                        interpolation={"basis"}
-                      />
-                </VictoryStack>
-            </VictoryChart>
-          </View>
 
-          <View style={{ zIndex: 1, position: "absolute", height: "100%", width: "100%" }}>
-          </View>
-      </View>
-    )
+  render(){
+      return(
+        <View style={styles.container}>
+            <View  style={{ zIndex: 0 }}>
+              <VictoryChart width={350} theme={VictoryTheme.material}>
+                  <VictoryStack colorScale={"blue"} >
+                        <VictoryArea
+                          data={this.props.dataProps}
+                          interpolation={"basis"}
+                        />
+                  </VictoryStack>
+              </VictoryChart>
+            </View>
+
+            <View style={{ zIndex: 1, position: "absolute", height: "100%", width: "100%" }}>
+            </View>
+        </View>
+      )
+    }
   }
-}
 
 const styles = {
   container: {

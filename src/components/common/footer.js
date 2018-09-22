@@ -25,19 +25,19 @@ class Footer extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Water") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 44, width: 29 }}
-              source={require('../../assets/icons/wicon.png')}
+              style={{ height: 40, width: 29 }}
+              source={require('../../assets/icons/watericon.png')}
             />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Plant") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 52, width: 36 }}
-              source={require('../../assets/icons/picon.png')}
+              style={{ height: 40, width: 36 }}
+              source={require('../../assets/icons/planticon.png')}
             />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Setting") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 46, width: 46 }}
+              style={{ height: 48, width: 48 }}
               source={require('../../assets/icons/sicon.png')}
             />
         </TouchableOpacity>
