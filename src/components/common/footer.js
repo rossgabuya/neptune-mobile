@@ -19,26 +19,26 @@ class Footer extends React.Component {
       <View style={ style.container }>
         <TouchableOpacity onPress={() => { this.returnNav("Home") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 50, width: 50 }}
+              style={{ height: 40, width: 40 }}
               source={require('../../assets/icons/home-icon.png')}
             />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Water") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 48, width: 33 }}
-              source={require('../../assets/icons/watericon.png')}
+              style={{ height: 44, width: 29 }}
+              source={require('../../assets/icons/wicon.png')}
             />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Plant") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 50, width: 36 }}
-              source={require('../../assets/icons/planticon.png')}
+              style={{ height: 52, width: 36 }}
+              source={require('../../assets/icons/picon.png')}
             />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { this.returnNav("Setting") }} style={ style.navBottomWrapper }>
             <Image
-              style={{ height: 45, width: 45 }}
-              source={require('../../assets/icons/settingicn.png')}
+              style={{ height: 46, width: 46 }}
+              source={require('../../assets/icons/sicon.png')}
             />
         </TouchableOpacity>
       </View>
@@ -48,7 +48,7 @@ class Footer extends React.Component {
 
 const style = {
   container: {
-    height: 75,
+    height: 50,
     width: "100%",
     backgroundColor: "#f2f2f2",
     flexDirection: "row",
