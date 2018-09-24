@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
+import { LinearGradient } from 'expo';
+
 
 import Footer from "./common/footer";
 import Chart from "./common/chart";
@@ -14,6 +16,10 @@ class Water extends React.Component {
     this.navigation = this.navigation.bind(this);
     this.categoryChoice = this.categoryChoice.bind(this);
   }
+
+  static navigationOptions = {
+    header:null
+  };
 
   componentWillMount() {
     const data = {
@@ -51,7 +57,11 @@ class Water extends React.Component {
 
   render() {
     return(
-      <View style={{ flex: 1 }}>
+      <LinearGradient
+          colors={['#FFF','#e6faff', '#b3f0ff', '#99ebff', '#80e5ff', '#66e0ff']}
+          start={[0, 0]}
+          end={[1, 1]}
+          style={{ flex: 1 }}>
             <ScrollView>
               <View style={{ flexDirection: "column" }}>
                 <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#f2f2f2"  , flexDirection: "row"}}>
@@ -65,61 +75,61 @@ class Water extends React.Component {
                         <Image
                           style={{ height: 40, width: 35 }}
                           source={require('../assets/icons/salicon.png')}
-                          />   
+                          />
                     </TouchableOpacity>
                     <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("SAL") } }>
                         <Image
                           style={{ height: 38, width: 32 }}
                           source={require('../assets/icons/tempicon.png')}
-                          />   
+                          />
                     </TouchableOpacity>
                     <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("SAL") } }>
                         <Image
                           style={{ height: 33, width: 29 }}
                           source={require('../assets/icons/WLcon.png')}
-                          />   
+                          />
                     </TouchableOpacity>
                 </View>
 
-                <View style={ style.titleHeader }> 
+                <View style={ style.titleHeader }>
                     <Image
                       style={{ height: 33, width: 32, marginRight: 20 }}
                       source={require('../assets/icons/fish-icon.png')}
-                    /> 
-                    <Text> Fish tank </Text>  
+                    />
+                    <Text> Fish tank </Text>
                 </View>
                 <Chart dataProps={this.state.activeData} />
 
-                <View style={ style.titleHeader }> 
+                <View style={ style.titleHeader }>
                   <Image
                     style={{ height: 33, width: 29, marginRight: 20, marginTop: 30 }}
                     source={require('../assets/icons/drink-water-icon.png')}
-                  />  
+                  />
                   <Text> Drinking water </Text>
-                </View>   
+                </View>
                 <Chart dataProps={this.state.activeData} />
               </View>
-              
+
             </ScrollView>
           <Footer navProps={this.navigation}/>
-      </View>
+      </LinearGradient>
     )
   }
 }
 
 const style = {
   buttonStyle: {
-    flex: 1, 
-    justifyContent: "center", 
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center"
   },
   titleHeader: {
-    flexDirection: "row", 
-    justifyContent: "center" , 
-    alignItems: "center", 
-    width: "100%", height:50 
+    flexDirection: "row",
+    justifyContent: "center" ,
+    alignItems: "center",
+    width: "100%", height:50
   }
-  
+
 }
 
 export default Water;

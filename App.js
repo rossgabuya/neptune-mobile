@@ -11,7 +11,7 @@ import Settings from "./src/components/settings";
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, paddingTop: 25 }}>
           <RootStack />
       </View>
     );
