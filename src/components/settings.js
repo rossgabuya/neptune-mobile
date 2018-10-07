@@ -60,12 +60,10 @@ const styles= {
     flex:1,
     height:50,
     fontSize: 33,
-    
   },
   notifContainer:{
     flexDirection: "row", 
     marginTop: 5,
   }
-
 }
 export default Settings;
