@@ -4,9 +4,6 @@ import { View, TouchableOpacity, Image } from "react-native";
 class Footer extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      navDestination: "",
-    }
     this.returnNav = this.returnNav.bind(this);
   }
 
@@ -17,7 +14,7 @@ class Footer extends React.Component {
   render() {
     return(
       <View style={ style.container }>
-        <TouchableOpacity onPress={() => { this.returnNav("Home") }} style={ style.navBottomWrapper }>
+        <TouchableOpacity onPress={ () => { this.returnNav("Home") } } style={ style.navBottomWrapper }>
             <Image
               style={{ height: 40, width: 40 }}
               source={require('../../assets/icons/home-icon.png')}
