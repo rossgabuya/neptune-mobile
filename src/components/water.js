@@ -9,7 +9,8 @@ class Water extends React.Component {
     super(props);
     this.state={
       data:"",
-      activeData: ""
+      activeData: "",
+      selectedTab: ""
     }
     this.navigation = this.navigation.bind(this);
     this.categoryChoice = this.categoryChoice.bind(this);
@@ -36,6 +37,26 @@ class Water extends React.Component {
         { x: "Feb", y: 10 },
         { x: "March", y: 10 },
         { x: "April", y: 4 },
+      ],
+      TEMP: [
+        { x: "Aug", y: 5 },
+        { x: "Sept", y: 3 },
+        { x: "Nov", y: 6 },
+        { x: "Dec", y: 10 },
+        { x: "Jan", y: 7 },
+        { x: "Feb", y: 14 },
+        { x: "March", y: 10 },
+        { x: "April", y: 4 },
+      ],
+      WL: [
+        { x: "Aug", y: 15 },
+        { x: "Sept", y: 13 },
+        { x: "Nov", y: 10 },
+        { x: "Dec", y: 15 },
+        { x: "Jan", y: 7 },
+        { x: "Feb", y: 10 },
+        { x: "March", y: 3 },
+        { x: "April", y: 4 },
       ]
     }
     this.setState({ data: data, activeData: data["PH"] })
@@ -46,10 +67,11 @@ class Water extends React.Component {
   }
 
   categoryChoice(event){
-    this.setState({ activeData: this.state.data[event] })
+    this.setState({ activeData: this.state.data[event], selectedTab: event })
   }
 
   render() {
+    console.log(this.state.activeData);
     return(
       <View style={{ flex: 1 }}>
             <ScrollView>
@@ -67,13 +89,13 @@ class Water extends React.Component {
                           source={require('../assets/icons/salicon.png')}
                           />   
                     </TouchableOpacity>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("SAL") } }>
+                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("TEMP") } }>
                         <Image
                           style={{ height: 38, width: 32 }}
                           source={require('../assets/icons/tempicon.png')}
                           />   
                     </TouchableOpacity>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("SAL") } }>
+                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("WL") } }>
                         <Image
                           style={{ height: 33, width: 29 }}
                           source={require('../assets/icons/WLcon.png')}
@@ -96,8 +118,23 @@ class Water extends React.Component {
                     source={require('../assets/icons/drink-water-icon.png')}
                   />  
                   <Text> Drinking water </Text>
-                </View>   
+                </View> 
                 <Chart dataProps={this.state.activeData} />
+
+              { this.state.selectedTab === "WL" ? 
+              ( 
+              <View>
+                <View style={ style.titleHeader }> 
+                  <Image
+                    style={{ height: 33, width: 29, marginRight: 20, marginTop: 30 }}
+                    source={require('../assets/icons/drink-water-icon.png')}
+                  />  
+                  <Text> Drinking water </Text>
+                </View> 
+                <Chart dataProps={this.state.activeData} />
+              </View>
+              ) : (<View></View>)}
+
               </View>
               
             </ScrollView>
