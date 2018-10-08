@@ -21,7 +21,6 @@ class Settings extends React.Component {
   }
 
   render() {
-    console.log(this.state.switch1);
     return(
       <View style={{ flex: 1 }}>
           <LinearGradient
