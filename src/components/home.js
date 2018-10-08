@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { LinearGradient } from 'expo';
 
 
@@ -12,6 +12,10 @@ class Home extends React.Component {
     this.navigation = this.navigation.bind(this);
   }
 
+  // static navigationOptions = {
+  //   header:null
+  // };
+
   navigation(event){
     this.props.navigation.navigate(event.navDestination)
   }
@@ -23,40 +27,40 @@ class Home extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
-      <View style={{flex:1 }}>
-       <TouchableOpacity style={styles.notifContainer}>
-          <View>
-            <Text style={styles.Text}> Growth Photo </Text>
-          </View>
+        <ScrollView style={{ flex:1 }}>
+         <TouchableOpacity style={styles.notifContainer}>
+            <View>
+              <Text style={styles.Text}> Growth Photo </Text>
+            </View>
 
-          <View>
-            <Image source={require('../assets/testplant.jpg')} style={{ height:200, width:"100%" }}/>
-          </View>
-        </TouchableOpacity>
-    
-        <TouchableOpacity style={styles.notifContainer}>      
-          <View>
-            <Text style={styles.Text}> water level is at: </Text> 
-          </View>
+            <View>
+              <Image source={require('../assets/testplant.jpg')} style={{ height:200, width:"100%" }}/>
+            </View>
+          </TouchableOpacity>
 
-          <View style={{ flexDirection:"row", }}>
-            <Image source={require('../assets/icons/waticon.jpg')} style={{ height: 50, width: 50 }}/>
-            <Text style={styles.Text}> 10% </Text>
-          </View>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.notifContainer}>
+            <View>
+              <Text style={styles.Text}> water level is at: </Text>
+            </View>
 
-        <TouchableOpacity style={styles.notifContainer}>
-          <View>
-            <Text style={styles.Text }> Ph Level Is At: </Text> 
-          </View>
-          <View style={{ flexDirection:'row'}}>
-            <Image source={require('../assets/icons/acid-icon.png')} style={{ height:50, width:25,}}/>
-            <Text style={styles.Text}> 8.0</Text>
-          </View>
-        </TouchableOpacity>   
-      </View>
+            <View style={{ flexDirection:"row", }}>
+              <Image source={require('../assets/icons/waticon.jpg')} style={{ height: 50, width: 50 }}/>
+              <Text style={styles.Text}> 10% </Text>
+            </View>
+          </TouchableOpacity>
 
-      <Footer navProps={this.navigation}/>
+          <TouchableOpacity style={styles.notifContainer}>
+            <View>
+              <Text style={styles.Text }> Ph Level Is At: </Text>
+            </View>
+            <View style={{ flexDirection:'row'}}>
+              <Image source={require('../assets/icons/acid-icon.png')} style={{ height:50, width:25,}}/>
+              <Text style={styles.Text}> 8.0</Text>
+            </View>
+          </TouchableOpacity>
+        </ScrollView>
+
+        <Footer navProps={this.navigation} activeRoute={this.props.navigation.state.routeName}/>
   </LinearGradient>
     )
   }

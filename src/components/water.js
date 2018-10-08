@@ -12,7 +12,7 @@ class Water extends React.Component {
     this.state={
       data:"",
       activeData: "",
-      selectedTab: ""
+      selectedTab: "PH"
     }
     this.navigation = this.navigation.bind(this);
     this.categoryChoice = this.categoryChoice.bind(this);
@@ -77,42 +77,45 @@ class Water extends React.Component {
   }
 
   render() {
+    const { buttonStyle , titleHeader} = style;
+    const { buttonStyleActive } = activeStyle;
     return(
       <LinearGradient
           colors={['#FFF','#e6faff', '#b3f0ff', '#99ebff', '#80e5ff', '#66e0ff']}
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
+            <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#f2f2f2"  , flexDirection: "row"}}>
+                <TouchableOpacity style={ this.state.selectedTab === "PH" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("PH") } }>
+                  <Image
+                      style={{ height: 35, width: 17 }}
+                      source={require('../assets/icons/alkal-icon.png')}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity style={ this.state.selectedTab === "SAL" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("SAL") } }>
+                    <Image
+                      style={{ height: 40, width: 35 }}
+                      source={require('../assets/icons/salicon.png')}
+                      />
+                </TouchableOpacity>
+                <TouchableOpacity style={ this.state.selectedTab === "TEMP" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("TEMP") } }>
+                    <Image
+                      style={{ height: 38, width: 32 }}
+                      source={require('../assets/icons/tempicon.png')}
+                      />
+                </TouchableOpacity>
+                <TouchableOpacity style={ this.state.selectedTab === "WL" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("WL") } }>
+                    <Image
+                      style={{ height: 33, width: 29 }}
+                      source={require('../assets/icons/WLcon.png')}
+                      />
+                </TouchableOpacity>
+            </View>
             <ScrollView>
               <View style={{ flexDirection: "column" }}>
-                <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#f2f2f2"  , flexDirection: "row"}}>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("PH") } }>
-                      <Image
-                          style={{ height: 35, width: 17 }}
-                          source={require('../assets/icons/alkal-icon.png')}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("SAL") } }>
-                        <Image
-                          style={{ height: 40, width: 35 }}
-                          source={require('../assets/icons/salicon.png')}
-                          />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("TEMP") } }>
-                        <Image
-                          style={{ height: 38, width: 32 }}
-                          source={require('../assets/icons/tempicon.png')}
-                          />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={ style.buttonStyle }  onPress={ () => { this.categoryChoice("WL") } }>
-                        <Image
-                          style={{ height: 33, width: 29 }}
-                          source={require('../assets/icons/WLcon.png')}
-                          />
-                    </TouchableOpacity>
-                </View>
 
-                <View style={ style.titleHeader }>
+
+                <View style={ titleHeader }>
                     <Image
                       style={{ height: 33, width: 32, marginRight: 20 }}
                       source={require('../assets/icons/fish-icon.png')}
@@ -121,7 +124,7 @@ class Water extends React.Component {
                 </View>
                 <Chart dataProps={this.state.activeData} />
 
-                <View style={ style.titleHeader }>
+                <View style={ titleHeader }>
                   <Image
                     style={{ height: 33, width: 29, marginRight: 20, marginTop: 30 }}
                     source={require('../assets/icons/drink-water-icon.png')}
@@ -130,16 +133,16 @@ class Water extends React.Component {
                 </View>
                 <Chart dataProps={this.state.activeData} />
 
-              { this.state.selectedTab === "WL" ? 
-              ( 
+              { this.state.selectedTab === "WL" ?
+              (
               <View>
-                <View style={ style.titleHeader }> 
+                <View style={ titleHeader }>
                   <Image
                     style={{ height: 33, width: 29, marginRight: 20, marginTop: 30 }}
                     source={require('../assets/icons/drink-water-icon.png')}
-                  />  
+                  />
                   <Text> Drinking water </Text>
-                </View> 
+                </View>
                 <Chart dataProps={this.state.activeData} />
               </View>
               ) : (<View></View>)}
@@ -147,7 +150,8 @@ class Water extends React.Component {
               </View>
 
             </ScrollView>
-          <Footer navProps={this.navigation}/>
+
+            <Footer navProps={this.navigation} activeRoute={this.props.navigation.state.routeName}/>
       </LinearGradient>
     )
   }
@@ -165,7 +169,13 @@ const style = {
     alignItems: "center",
     width: "100%", height:50
   }
+}
 
+const activeStyle = {
+  buttonStyleActive: {
+    ...style.buttonStyle,
+    backgroundColor: "#d9d9d9"
+  }
 }
 
 export default Water;
