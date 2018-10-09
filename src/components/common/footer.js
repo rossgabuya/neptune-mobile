@@ -49,7 +49,7 @@ const styles = {
   container: {
     height: 50,
     width: "100%",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#fff",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -69,7 +69,7 @@ const styles = {
 const activeStyle = {
   navBottomWrapperActive: {
     ...styles.navBottomWrapper,
-    backgroundColor: "#d9d9d9",
+    backgroundColor: "#f2f2f2",
   }
 }
 

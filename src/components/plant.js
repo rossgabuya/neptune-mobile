@@ -60,7 +60,7 @@ class Plant extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
-            <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#f2f2f2"  , flexDirection: "row"}}>
+            <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
                 <TouchableOpacity style={ this.state.activeTab === "growth" ?
                                   buttonStyleActive : buttonStyle
                                   }
@@ -100,7 +100,8 @@ const style = {
   buttonStyle: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
   titleHeader: {
     flexDirection: "row",
@@ -113,7 +114,7 @@ const style = {
 const activeStyle = {
   buttonStyleActive: {
     ...style.buttonStyle,
-    backgroundColor: "#d9d9d9",
+    backgroundColor: "#f2f2f2",
   }
 }
 

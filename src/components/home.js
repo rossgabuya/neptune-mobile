@@ -12,9 +12,9 @@ class Home extends React.Component {
     this.navigation = this.navigation.bind(this);
   }
 
-  // static navigationOptions = {
-  //   header:null
-  // };
+  static navigationOptions = {
+    header:null
+  };
 
   navigation(event){
     this.props.navigation.navigate(event.navDestination)
@@ -27,6 +27,9 @@ class Home extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
+          <View style={{ justifyContent: "center", alignItems: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+            <Text style={{ fontSize: 24 }}> Home </Text>
+          </View>
         <ScrollView style={{ flex:1 }}>
          <TouchableOpacity style={styles.notifContainer}>
             <View>
@@ -75,6 +78,7 @@ const styles={
     paddingRight:5,
     paddingLeft:5,
     paddingBottom:10,
+    borderRadius: 10
   },
    Text:{
      fontSize:35,
