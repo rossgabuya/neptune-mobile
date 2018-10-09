@@ -43,7 +43,7 @@ class Plant extends React.Component {
     }
 
     return(
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1 }}>
         <DateCalendar />
       </View>
     );
@@ -60,7 +60,7 @@ class Plant extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
-            <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+            <View style={{ justifyContent: "center",  width: "100%", height: 60, backgroundColor: "#fff"  , flexDirection: "row"}}>
                 <TouchableOpacity style={ this.state.activeTab === "growth" ?
                                   buttonStyleActive : buttonStyle
                                   }
