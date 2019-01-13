@@ -85,30 +85,21 @@ class Water extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
-            <View style={{ justifyContent: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+           <View style={{ justifyContent: "center", alignItems: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+                <Text style={{ fontSize: 24 }}> Water Level Statistics </Text>
+              </View>
+            <View style={{ justifyContent: "center",  width: "100%", height:30, backgroundColor: "#fff"  , flexDirection: "row"}}>
                 <TouchableOpacity style={ this.state.selectedTab === "PH" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("PH") } }>
-                  <Image
-                      style={{ height: 35, width: 17 }}
-                      source={require('../assets/icons/alkal-icon.png')}
-                    />
+                <Text> PH Level</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={ this.state.selectedTab === "SAL" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("SAL") } }>
-                    <Image
-                      style={{ height: 40, width: 35 }}
-                      source={require('../assets/icons/salicon.png')}
-                      />
+                <Text>  Salinity</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={ this.state.selectedTab === "TEMP" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("TEMP") } }>
-                    <Image
-                      style={{ height: 38, width: 32 }}
-                      source={require('../assets/icons/tempicon.png')}
-                      />
+                <Text>  Temperature</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={ this.state.selectedTab === "WL" ? buttonStyleActive : buttonStyle  }  onPress={ () => { this.categoryChoice("WL") } }>
-                    <Image
-                      style={{ height: 33, width: 29 }}
-                      source={require('../assets/icons/WLcon.png')}
-                      />
+                <Text> Water Level </Text>
                 </TouchableOpacity>
             </View>
             <ScrollView>

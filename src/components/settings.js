@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, ScrollView,TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo";
-import { Switch } from "native-base";
+import { Switch } from "antd-mobile-rn";
 import Footer from "./common/footer";
 
 
@@ -33,7 +33,7 @@ class Settings extends React.Component {
           end={[1, 1]}
           style={{ flex: 1 }}>
               <View style={{ justifyContent: "center", alignItems: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
-                <Text style={{ fontSize: 24 }}> Settings </Text>
+                <Text style={{ fontSize: 24 }}> Info. & Settings </Text>
               </View>
               <View style={{ marginTop: 20, flex: 1 }}>
                 <TouchableOpacity style={styles.notifContainer}>
@@ -43,12 +43,12 @@ class Settings extends React.Component {
 
                 <TouchableOpacity style={styles.notifContainer}>
                   <Text style={styles.Text}> About </Text>
-                  <Image source={require('../assets/icons/Help.png')} style={{ height: 50 , width: 50 }}/>
+                  <Image source={require('../assets/icons/fact-Icon.png')} style={{ height: 50 , width: 50 }}/>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={ () => {this.setState({ switch2: !this.state.switch2 })} } style={styles.notifContainer}>
                   <Text style={styles.Text}> Notification </Text>
-                  <Switch value={this.state.switch2} onChange={ () => {this.setState({ switch2: !this.state.switch2 })} } />
+                  <Switch checked={this.state.switch2} onPress={ () => {this.setState({ switch2: !this.state.switch2 })} } />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={ () => {this.setState({ switch1: !this.state.switch1 })} } style={styles.notifContainer}>
@@ -61,6 +61,7 @@ class Settings extends React.Component {
                   <Image source={require('../assets/icons/Userguideicon.png')} style={{ height: 50 , width: 50 }}/>
                 </TouchableOpacity>
               </View>
+              
           </LinearGradient>
 
           <Footer navProps={this.navigation} activeRoute={this.props.navigation.state.routeName}/>
@@ -79,6 +80,11 @@ const styles= {
   notifContainer:{
     flexDirection: "row",
     marginTop: 10,
+    backgroundColor:"#fff",   
+    borderRadius: 10,  
+    marginTop:8, 
+    paddingBottom:10,
+    
   }
 }
 export default Settings;

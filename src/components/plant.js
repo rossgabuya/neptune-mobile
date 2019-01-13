@@ -60,7 +60,10 @@ class Plant extends React.Component {
           start={[0, 0]}
           end={[1, 1]}
           style={{ flex: 1 }}>
-            <View style={{ justifyContent: "center",  width: "100%", height: 60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+           <View style={{ justifyContent: "center", alignItems: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
+                <Text style={{ fontSize: 24 }}> Plant Growth Development </Text>
+              </View>
+            <View style={{ justifyContent: "center",  width: "100%", height: 30, backgroundColor: "#fff"  , flexDirection: "row"}}>
                 <TouchableOpacity style={ this.state.activeTab === "growth" ?
                                   buttonStyleActive : buttonStyle
                                   }
