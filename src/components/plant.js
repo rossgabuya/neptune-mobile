@@ -12,7 +12,7 @@ class Plant extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      activeTab: "growth"
+      activeTab: "moisture"
     }
     this.navigation = this.navigation.bind(this);
     this.renderPage = this.renderPage.bind(this);
@@ -27,18 +27,11 @@ class Plant extends React.Component {
   }
 
   renderPage(){
-    if(this.state.activeTab === "growth"){
-      return(
-        <View style={{ flex: 1 }}>
-          <Growth />
-        </View>
-      );
-    }
     if(this.state.activeTab === "moisture"){
       return(
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Moisture />
-        </View>
+        <Moisture />
+      </View>
       );
     }
 
@@ -64,14 +57,14 @@ class Plant extends React.Component {
                 <Text style={{ fontSize: 24 }}> Plant Growth Development </Text>
               </View>
             <View style={{ justifyContent: "center",  width: "100%", height: 30, backgroundColor: "#fff"  , flexDirection: "row"}}>
-                <TouchableOpacity style={ this.state.activeTab === "growth" ?
+                {/* <TouchableOpacity style={ this.state.activeTab === "growth" ?
                                   buttonStyleActive : buttonStyle
                                   }
                                   onPress={ () => {
                                     this.setState({ activeTab: "growth" }) }
                                   }>
                   <Text> Growth</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity style={ this.state.activeTab === "moisture" ?
                                   buttonStyleActive : buttonStyle
                                   }
