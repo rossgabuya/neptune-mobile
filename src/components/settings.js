@@ -56,12 +56,26 @@ class Settings extends React.Component {
                   <Switch value={this.state.switch1} onChange={ () => {this.setState({ switch1: !this.state.switch1 })} } />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.notifContainer}>
-                  <Text style={styles.Text}> User Guide </Text>
+                <TouchableOpacity
+                  style={styles.notifContainer}
+                  onPress={
+                    () => { this.navigation({ navDestination: "FishGuide" }) }
+                  }
+                >
+                  <Text style={styles.Text}> Fish Guide </Text>
+                  <Image source={require('../assets/icons/Userguideicon.png')} style={{ height: 50 , width: 50 }}/>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.notifContainer}
+                  onPress={
+                    () => { this.navigation({ navDestination: "FishGuide" }) }
+                  }
+                >
+                  <Text style={styles.Text}> Plant Guide </Text>
                   <Image source={require('../assets/icons/Userguideicon.png')} style={{ height: 50 , width: 50 }}/>
                 </TouchableOpacity>
               </View>
-              
           </LinearGradient>
 
           <Footer navProps={this.navigation} activeRoute={this.props.navigation.state.routeName}/>
@@ -80,11 +94,11 @@ const styles= {
   notifContainer:{
     flexDirection: "row",
     marginTop: 10,
-    backgroundColor:"#fff",   
-    borderRadius: 10,  
-    marginTop:8, 
+    backgroundColor:"#fff",
+    borderRadius: 10,
+    marginTop:8,
     paddingBottom:10,
-    
+
   }
 }
 export default Settings;

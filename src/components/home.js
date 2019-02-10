@@ -1,8 +1,7 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView, Icon } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { LinearGradient } from 'expo';
 // import { Icon } from "@ant-design/icons-react-native";
-import { outlineGlyphMap } from '@ant-design/icons-react-native/lib/outline';
 
 
 import Footer from "./common/footer";
@@ -38,7 +37,6 @@ class Home extends React.Component {
   navigation(event){
     this.props.navigation.navigate(event.navDestination)
   }
- 
 
   render() {
     console.log(ScrollView);
@@ -52,8 +50,8 @@ class Home extends React.Component {
             <Text style={{ fontSize: 24 }}> Home </Text>
           </View>
         <ScrollView style={{ flex:1}}>
-         
-           
+
+
 
             <View style={{justifyContent:"center", alignItems:"center"}}>
               <Image source={require('../assets/icons/logoFinal.png')} style={{ height:150, width:150, marginTop: 50 ,marginBottom: 20,justifyContent:"center", alignContent:"center"}}/>
@@ -62,12 +60,12 @@ class Home extends React.Component {
             <View style={{marginBottom:10, marginTop: 20,marginLeft:20}}>
               <Text style={{flexDirection:"column", fontSize: 35}}>Quick Status: </Text>
             </View>
-         
+
 
           <TouchableOpacity style={styles.notifContainer}>
-           
+
             <View style={{ flexDirection:"row", }}>
-            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Moisture </Text>  
+            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Moisture </Text>
               <Text style={{fontSize:25}}> 10% </Text>
               <Text style={{fontSize:25}}> 10% </Text>
             </View>
@@ -75,7 +73,7 @@ class Home extends React.Component {
 
           <TouchableOpacity style={styles.notifContainer}>
           <View style={{ flexDirection:"row", }}>
-            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Ph Level </Text>            
+            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Ph Level </Text>
               <Text style={{fontSize:25}}> 10% </Text>
               <Text style={{fontSize:25}}> 10% </Text>
                <Text style={{fontSize:25}}> 10% </Text>
@@ -83,7 +81,7 @@ class Home extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity style={styles.notifContainer}>
           <View style={{ flexDirection:"row", }}>
-            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Water Volume </Text>            
+            <Text style={{flex:1, fontSize:30, marginLeft: 10}}> Water Volume </Text>
               <Text style={{fontSize:25}}> 10% </Text>
               <Text style={{fontSize:25}}> 10% </Text>
                <Text style={{fontSize:25}}> 10% </Text>
@@ -91,7 +89,7 @@ class Home extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity style={styles.notifContainer}>
           <View style={{ flexDirection:"row", }}>
-            <Text style={{flex:1, fontSize:30, marginLeft: 10}}>Salinity </Text>            
+            <Text style={{flex:1, fontSize:30, marginLeft: 10}}>Salinity </Text>
               <Text style={{fontSize:25}}> 10% </Text>
               <Text style={{fontSize:25}}> 10% </Text>
                <Text style={{fontSize:25}}> 10% </Text>
