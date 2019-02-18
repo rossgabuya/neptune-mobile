@@ -56,25 +56,6 @@ class Settings extends React.Component {
                   <Switch value={this.state.switch1} onChange={ () => {this.setState({ switch1: !this.state.switch1 })} } />
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                  style={styles.notifContainer}
-                  onPress={
-                    () => { this.navigation({ navDestination: "FishGuide" }) }
-                  }
-                >
-                  <Text style={styles.Text}> Fish Guide </Text>
-                  <Image source={require('../assets/icons/Userguideicon.png')} style={{ height: 50 , width: 50 }}/>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.notifContainer}
-                  onPress={
-                    () => { this.navigation({ navDestination: "FishGuide" }) }
-                  }
-                >
-                  <Text style={styles.Text}> Plant Guide </Text>
-                  <Image source={require('../assets/icons/Userguideicon.png')} style={{ height: 50 , width: 50 }}/>
-                </TouchableOpacity>
               </View>
           </LinearGradient>
 

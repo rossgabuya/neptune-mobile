@@ -39,7 +39,6 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(ScrollView);
     return(
       <LinearGradient
           colors={['#FFF','#e6faff', '#b3f0ff', '#99ebff', '#80e5ff', '#66e0ff']}
