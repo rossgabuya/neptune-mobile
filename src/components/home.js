@@ -15,9 +15,10 @@ class Home extends React.Component {
       moistureStatus: 10,
       phStatus: 6.5,
       waterStatus: 40,
-      salnityStatus: 5
+      salnityStatus: 20
     };
   }
+
   componentDidMount() {
     this.intervalID = setInterval(() => this.tick(), 1000);
   }
@@ -103,6 +104,7 @@ class Home extends React.Component {
               Neptune{" "}
             </Text>
           </View>
+
           <View style={{ marginBottom: 10, marginTop: 20, marginLeft: 20 }}>
             <Text style={{ flexDirection: "column", fontSize: 35 }}>
               Quick Status:{" "}
@@ -160,6 +162,7 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
@@ -184,6 +187,7 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
