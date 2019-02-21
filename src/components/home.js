@@ -118,8 +118,7 @@ class Home extends React.Component {
                 Moisture{" "}
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {" "}
-                10%{" "}
+                {this.state.moistureStatus}%{" "}
               </Text>
               {this.iconStatus(this.state.moistureStatus, 10, 7)}
               <TouchableOpacity>
@@ -145,8 +144,7 @@ class Home extends React.Component {
                 Ph Level{" "}
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {" "}
-                10%{" "}
+                {this.state.phStatus}{" "}
               </Text>
               {this.iconStatus(this.state.phStatus, 7, 6)}
               <TouchableOpacity>
@@ -170,8 +168,7 @@ class Home extends React.Component {
                 Water Volume{" "}
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {" "}
-                10%{" "}
+                {this.state.waterStatus}%{" "}
               </Text>
               {this.iconStatus(this.state.waterStatus, 110, 30)}
               <TouchableOpacity>
@@ -194,8 +191,7 @@ class Home extends React.Component {
                 Salinity{" "}
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {" "}
-                10%{" "}
+                {this.state.salnityStatus}%{" "}
               </Text>
               {this.iconStatus(this.state.salnityStatus, 10, 0)}
               <TouchableOpacity>
