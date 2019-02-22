@@ -126,7 +126,6 @@ class Water extends React.Component {
           >
             <Text> Salinity</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
             style={
               this.state.selectedTab === "TEMP"
@@ -139,7 +138,6 @@ class Water extends React.Component {
           >
             <Text> Temperature</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
             style={
               this.state.selectedTab === "WL" ? buttonStyleActive : buttonStyle
@@ -151,7 +149,6 @@ class Water extends React.Component {
             <Text> Water Level </Text>
           </TouchableOpacity>
         </View>
-
         <ScrollView>
           <View style={{ flexDirection: "column" }}>
             <View style={titleHeader}>
