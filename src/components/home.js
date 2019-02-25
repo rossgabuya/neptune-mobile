@@ -15,7 +15,7 @@ class Home extends React.Component {
       moistureStatus: 10,
       phStatus: 6.5,
       waterStatus: 40,
-      salnityStatus: 5
+      temperatureStatus: 5
     };
   }
   componentDidMount() {
@@ -44,7 +44,6 @@ class Home extends React.Component {
             marginTop: 5,
             marginRight: 15
           }}
-        />
         />
       </View>
     ) : (
@@ -100,25 +99,25 @@ class Home extends React.Component {
               }}
             />
             <Text style={{ flexDirection: "column", fontSize: 20 }}>
-              Neptune{" "}
+              Neptune
             </Text>
           </View>
+
           <View style={{ marginBottom: 10, marginTop: 20, marginLeft: 20 }}>
             <Text style={{ flexDirection: "column", fontSize: 35 }}>
-              Quick Status:{" "}
+              Quick Status:
             </Text>
           </View>
 
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
-                {" "}
-                Moisture{" "}
+                Moisture
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.moistureStatus}%{" "}
+                {this.state.moistureStatus}%
               </Text>
-              {this.iconStatus(this.state.moistureStatus, 10, 7)}
+              <View>{this.iconStatus(this.state.moistureStatus, 10, 7)}</View>
               <TouchableOpacity>
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
@@ -138,13 +137,13 @@ class Home extends React.Component {
               <Text
                 style={{ flex: 1, fontSize: 30, marginLeft: 10, marginTop: 5 }}
               >
-                {" "}
-                Ph Level{" "}
+                Ph Level
               </Text>
+
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.phStatus}{" "}
+                {this.state.phStatus}
               </Text>
-              {this.iconStatus(this.state.phStatus, 7, 6)}
+              <View>{this.iconStatus(this.state.phStatus, 7, 6)}</View>
               <TouchableOpacity>
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
@@ -158,16 +157,17 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
-                {" "}
-                Water Volume{" "}
+                Water Volume
               </Text>
+
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.waterStatus}%{" "}
+                {this.state.waterStatus}%
               </Text>
-              {this.iconStatus(this.state.waterStatus, 110, 30)}
+              <View>{this.iconStatus(this.state.waterStatus, 110, 30)}</View>
               <TouchableOpacity>
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
@@ -181,15 +181,16 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+          
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
-                Salinity{" "}
+               Temperature
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.salnityStatus}%{" "}
+                {this.state.temperatureStatus}
               </Text>
-              {this.iconStatus(this.state.salnityStatus, 10, 0)}
+              {this.iconStatus(this.state.temperatureStatus, 35, 20)}
               <TouchableOpacity>
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
@@ -203,6 +204,8 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
+         
+
           <View
             style={{
               marginBottom: 10,
@@ -212,7 +215,7 @@ class Home extends React.Component {
             }}
           >
             <Text style={{ flexDirection: "row", fontSize: 20 }}>
-              As of: {this.state.time}"{" "}
+              As of: {this.state.time}
             </Text>
           </View>
         </ScrollView>
