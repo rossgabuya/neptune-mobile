@@ -50,8 +50,8 @@ class Settings extends React.Component {
           >
             <Text style={{ fontSize: 24 }}> Info. & Settings </Text>
           </View>
-          <View style={{ marginTop: 20, flex: 1 }}>
-            <TouchableOpacity style={styles.notifContainer}>
+          <ScrollView style={{ marginTop: 10, flex: 1 }}>
+            {/* <TouchableOpacity style={styles.notifContainer}>
               <Text style={styles.Text}> User </Text>
               <Image
                 source={require("../assets/icons/user-icon.png")}
@@ -65,7 +65,7 @@ class Settings extends React.Component {
                 source={require("../assets/icons/fact-Icon.png")}
                 style={{ height: 50, width: 50 }}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity
               onPress={() => {
@@ -97,7 +97,60 @@ class Settings extends React.Component {
               />
             </TouchableOpacity>
          */}
-          </View>
+            <View
+              style={{
+                width: "100%",
+                flex: 2,
+                backgroundColor: "#fff",
+                flexDirection: "column",
+                borderRadius: 10,
+                marginTop: 8,
+                paddingBottom: 10
+              }}
+            >
+              justifyContent: "center", alignItems: "center",
+              <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <Text
+                  style={{ fontSize: 24, marginTop: 15, paddingBottom: 10 }}
+                >
+                  About
+                </Text>
+              </View>
+              <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <Text style={{ fontSize: 20, marginTop: 5, marginBottom: 15 }}>
+                  some text assetsas assetsas assets assets assets assets assets
+                  assets assets
+                </Text>
+              </View>
+            </View>
+
+            <View
+              style={{
+                width: "100%",
+                flex: 2,
+                backgroundColor: "#fff",
+                flexDirection: "column",
+                borderRadius: 10,
+                marginTop: 8,
+                paddingBottom: 10
+              }}
+            >
+              justifyContent: "center", alignItems: "center",
+              <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <Text
+                  style={{ fontSize: 24, marginTop: 15, paddingBottom: 10 }}
+                >
+                  Importance
+                </Text>
+              </View>
+              <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <Text style={{ fontSize: 20, marginTop: 5, marginBottom: 15 }}>
+                  some text assetsas assetsas assets assets assets assets assets
+                  assets assets
+                </Text>
+              </View>
+            </View>
+          </ScrollView>
         </LinearGradient>
 
         <Footer
@@ -117,10 +170,9 @@ const styles = {
   },
   notifContainer: {
     flexDirection: "row",
-    marginTop: 10,
     backgroundColor: "#fff",
     borderRadius: 10,
-    marginTop: 8,
+    marginTop: 5,
     paddingBottom: 10
   }
 };

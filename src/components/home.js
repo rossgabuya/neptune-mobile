@@ -65,6 +65,10 @@ class Home extends React.Component {
     this.props.navigation.navigate(event.navDestination);
   }
 
+  navProps(event, obj) {
+    this.props.navigation.navigate(event, obj);
+  }
+
   render() {
     return (
       <LinearGradient
@@ -118,7 +122,11 @@ class Home extends React.Component {
                 {this.state.moistureStatus}%
               </Text>
               <View>{this.iconStatus(this.state.moistureStatus, 10, 7)}</View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.navigation({ navDestination: "Plant" });
+                }}
+              >
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
                   style={{
@@ -144,7 +152,11 @@ class Home extends React.Component {
                 {this.state.phStatus}
               </Text>
               <View>{this.iconStatus(this.state.phStatus, 7, 6)}</View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.navProps("Water", { subPage: "PH" });
+                }}
+              >
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
                   style={{
@@ -168,7 +180,11 @@ class Home extends React.Component {
                 {this.state.waterStatus}%
               </Text>
               <View>{this.iconStatus(this.state.waterStatus, 110, 30)}</View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.navProps("Water", { subPage: "WL" });
+                }}
+              >
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
                   style={{
@@ -181,17 +197,21 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
-          
+
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
-               Temperature
+                Temperature
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
                 {this.state.temperatureStatus}
               </Text>
               {this.iconStatus(this.state.temperatureStatus, 35, 20)}
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.navProps("Water", { subPage: "TEMP" });
+                }}
+              >
                 <Image
                   source={require("../assets/statusLogo/arrowLeft.png")}
                   style={{
@@ -204,7 +224,6 @@ class Home extends React.Component {
               </TouchableOpacity>
             </View>
           </View>
-         
 
           <View
             style={{

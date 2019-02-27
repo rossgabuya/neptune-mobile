@@ -37,14 +37,13 @@ class Footer extends React.Component {
         <TouchableOpacity onPress={() => { this.returnNav("Setting") }} style={this.props.activeRoute === "Setting" ? navBottomWrapperActive : navBottomWrapper }>
             <Image
               style={{ height: 40, width: 40 }}
-              source={require('../../assets/icons/sicon.png')}
+              source={require('../../assets/icons/fact-Icon.png')}
             />
         </TouchableOpacity>
       </View>
     )
   }
 }
-
 const styles = {
   container: {
     height: 50,

@@ -64,7 +64,17 @@ class Water extends React.Component {
         { x: "April", y: 4 }
       ]
     };
-    this.setState({ data: data, activeData: data["PH"] });
+
+    if (this.props.navigation.state.params) {
+      const subPage = this.props.navigation.state.params.subPage;
+      this.setState({
+        data: data,
+        activeData: data[subPage],
+        selectedTab: subPage
+      });
+    } else {
+      this.setState({ data: data, activeData: data["PH"] });
+    }
   }
 
   navigation(event) {
