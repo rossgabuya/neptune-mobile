@@ -108,7 +108,6 @@ class Settings extends React.Component {
                 paddingBottom: 10
               }}
             >
-              justifyContent: "center", alignItems: "center",
               <View style={{ justifyContent: "center", alignItems: "center" }}>
                 <Text
                   style={{ fontSize: 24, marginTop: 15, paddingBottom: 10 }}
