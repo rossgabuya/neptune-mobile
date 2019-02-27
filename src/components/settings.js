@@ -48,7 +48,7 @@ class Settings extends React.Component {
               flexDirection: "row"
             }}
           >
-            <Text style={{ fontSize: 24 }}> Info. & Settings </Text>
+            <Text style={{ fontSize: 24 }}> About </Text>
           </View>
           <ScrollView style={{ marginTop: 10, flex: 1 }}>
             {/* <TouchableOpacity style={styles.notifContainer}>
@@ -113,13 +113,25 @@ class Settings extends React.Component {
                 <Text
                   style={{ fontSize: 24, marginTop: 15, paddingBottom: 10 }}
                 >
-                  About
+                  About Neptune
                 </Text>
               </View>
               <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <Text style={{ fontSize: 20, marginTop: 5, marginBottom: 15 }}>
-                  some text assetsas assetsas assets assets assets assets assets
-                  assets assets
+                <Text
+                  style={{
+                    fontSize: 18,
+                    marginTop: 5,
+                    marginBottom: 15,
+                    marginLeft: 25,
+                    marginRight: 25
+                  }}
+                >
+                  Neptune is an application that will give you real time data
+                  monitoring where you can easily check your crops by just
+                  checking it on your phone and it will send notifications to
+                  your device to alert the user whenever there are changes or
+                  critical issue happening like high level of ph or changes in
+                  temperature.
                 </Text>
               </View>
             </View>
@@ -144,9 +156,19 @@ class Settings extends React.Component {
                 </Text>
               </View>
               <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <Text style={{ fontSize: 20, marginTop: 5, marginBottom: 15 }}>
-                  some text assetsas assetsas assets assets assets assets assets
-                  assets assets
+                <Text
+                  style={{
+                    fontSize: 18,
+                    marginTop: 5,
+                    marginBottom: 15,
+                    marginLeft: 25,
+                    marginRight: 25
+                  }}
+                >
+                  Aquaponics system is a combines aquatic plants with animal
+                  production, it has a special set of water chemistry
+                  requirements, and exelent water quality is needed to have a
+                  healthy, balanced, functioning Aquaponics system.
                 </Text>
               </View>
             </View>
