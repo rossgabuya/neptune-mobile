@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { LinearGradient } from "expo";
 // import { Icon } from "@ant-design/icons-react-native";
-
+import { StatusBar } from "react-native";
 import Footer from "./common/footer";
 import { CheckBox } from "native-base";
 
@@ -77,6 +77,17 @@ class Home extends React.Component {
         end={[1, 1]}
         style={{ flex: 1 }}
       >
+        <StatusBar
+          barStyle="dark-content"
+          // dark-content, light-content and default
+          hidden={false}
+          //To hide statusBar
+          backgroundColor="#00BCD4"
+          //Background color of statusBar
+          translucent={false}
+          //allowing light, but not detailed shapes
+          networkActivityIndicatorVisible={true}
+        />
         <View
           style={{
             justifyContent: "center",
