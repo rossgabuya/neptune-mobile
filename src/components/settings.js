@@ -73,8 +73,26 @@ class Settings extends React.Component {
               }}
               style={styles.notifContainer}
             >
-              <Text style={styles.Text}> Notification </Text>
+              <Text
+                style={{
+                  flex: 1,
+                  flexDirection: "row",
+                  fontSize: 24,
+                  marginTop: 8,
+                  paddingBottom: 10
+                }}
+              >
+                {" "}
+                Notification{" "}
+              </Text>
               <Switch
+                style={{
+                  flexDirection: "row",
+                  paddingRight: 10,
+                  marginTop: 12,
+                  marginRight: 15,
+                  paddingBottom: 10
+                }}
                 checked={this.state.switch2}
                 onPress={() => {
                   this.setState({ switch2: !this.state.switch2 });
@@ -99,13 +117,16 @@ class Settings extends React.Component {
          */}
             <View
               style={{
-                width: "100%",
-                flex: 2,
+                flex: 1,
                 backgroundColor: "#fff",
                 flexDirection: "column",
                 borderRadius: 10,
                 marginTop: 8,
-                paddingBottom: 10
+                paddingBottom: 10,
+                marginLeft: 10,
+                marginRight: 10,
+                paddingRight: 5,
+                paddingLeft: 5
               }}
             >
               <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -137,13 +158,16 @@ class Settings extends React.Component {
 
             <View
               style={{
-                width: "100%",
-                flex: 2,
+                flex: 1,
                 backgroundColor: "#fff",
                 flexDirection: "column",
                 borderRadius: 10,
                 marginTop: 8,
-                paddingBottom: 10
+                paddingBottom: 10,
+                marginLeft: 10,
+                marginRight: 10,
+                paddingRight: 5,
+                paddingLeft: 5
               }}
             >
               <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -193,7 +217,11 @@ const styles = {
     backgroundColor: "#fff",
     borderRadius: 10,
     marginTop: 5,
-    paddingBottom: 10
+    paddingBottom: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    paddingRight: 5,
+    paddingLeft: 5
   }
 };
 export default Settings;
