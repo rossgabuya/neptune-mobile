@@ -82,7 +82,7 @@ class Home extends React.Component {
           // dark-content, light-content and default
           hidden={false}
           //To hide statusBar
-          backgroundColor="#00BCD4"
+          backgroundColor="rgba(0,0,0,0.2)"
           //Background color of statusBar
           translucent={false}
           //allowing light, but not detailed shapes
