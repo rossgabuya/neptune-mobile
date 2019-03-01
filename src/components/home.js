@@ -25,8 +25,35 @@ class Home extends React.Component {
     clearInterval(this.intervalID);
   }
   tick() {
-    this.setState({
-      time: new Date().toLocaleString()
+    return fetch('http://192.168.254.110:3001/v1/homes.json')
+    .then((response) => response.json())
+    .then((responseJson) => {
+
+      this.setState({
+        isLoading: false,
+        dataSource: responseJson.data,
+        time: new Date().toLocaleString()
+      }, function(){
+
+      });
+      
+      let result = this.state.dataSource.map(
+        (key,index) => key
+      );
+      //console.log(result);
+
+      let items = new Object(result[result.length - 1]);
+      console.log(items);
+
+      this.setState({
+        ph: items.ph,
+        temp: items.temp,
+        vol: items.vol
+      });
+      
+    })
+    .catch((error) =>{
+      console.error(error);
     });
   }
   static navigationOptions = {
@@ -119,50 +146,23 @@ class Home extends React.Component {
           </View>
 
           <View style={{ marginBottom: 10, marginTop: 20, marginLeft: 20 }}>
-            <Text style={{ flexDirection: "column", fontSize: 35 }}>
+            <Text style={{ flexDirection: "column", fontSize: 25 }}>
               Quick Status:
             </Text>
           </View>
 
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
-                Moisture
-              </Text>
-              <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.moistureStatus}%
-              </Text>
-              <View>{this.iconStatus(this.state.moistureStatus, 10, 7)}</View>
-              <TouchableOpacity
-                onPress={() => {
-                  this.navigation({ navDestination: "Plant" });
-                }}
-              >
-                <Image
-                  source={require("../assets/statusLogo/arrowLeft.png")}
-                  style={{
-                    height: 35,
-                    width: 35,
-                    marginTop: 5,
-                    marginRight: 15
-                  }}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          <View style={styles.notifContainer}>
-            <View style={{ flexDirection: "row" }}>
               <Text
-                style={{ flex: 1, fontSize: 30, marginLeft: 10, marginTop: 5 }}
+                style={{ flex: 1, fontSize: 25, marginLeft: 10, marginTop: 5 }}
               >
                 Ph Level
               </Text>
 
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.phStatus}
+                {this.state.ph}
               </Text>
-              <View>{this.iconStatus(this.state.phStatus, 7, 6)}</View>
+              <View>{this.iconStatus(this.state.ph, 7, 6)}</View>
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "PH" });
@@ -183,14 +183,14 @@ class Home extends React.Component {
 
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
+              <Text style={{ flex: 1, fontSize: 25, marginLeft: 10 }}>
                 Water Volume
               </Text>
 
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.waterStatus}%
+                {this.state.vol}%
               </Text>
-              <View>{this.iconStatus(this.state.waterStatus, 110, 30)}</View>
+              <View>{this.iconStatus(this.state.vol, 110, 30)}</View>
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "WL" });
@@ -211,13 +211,13 @@ class Home extends React.Component {
 
           <View style={styles.notifContainer}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ flex: 1, fontSize: 30, marginLeft: 10 }}>
+              <Text style={{ flex: 1, fontSize: 25, marginLeft: 10 }}>
                 Temperature
               </Text>
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
-                {this.state.temperatureStatus}
+                {this.state.temp}
               </Text>
-              {this.iconStatus(this.state.temperatureStatus, 35, 20)}
+              {this.iconStatus(this.state.temp, 35, 20)}
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "TEMP" });
