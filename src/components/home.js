@@ -43,7 +43,7 @@ class Home extends React.Component {
       //console.log(result);
 
       let items = new Object(result[result.length - 1]);
-      console.log(items);
+      //console.log(items);
 
       this.setState({
         ph: items.ph,

@@ -15,6 +15,7 @@ class Water extends React.Component {
     };
     this.navigation = this.navigation.bind(this);
     this.categoryChoice = this.categoryChoice.bind(this);
+    this.getGraphData = this.getGraphData.bind(this);
   }
 
   static navigationOptions = {
@@ -22,49 +23,35 @@ class Water extends React.Component {
   };
 
   componentWillMount() {
-    const data = {
-      PH: [
-        { x: "Aug", y: 15.5 },
-        { x: "Sept", y: 10 },
-        { x: "Nov", y: 7 },
-        { x: "Dec", y: 15 },
-        { x: "Jan", y: 1 },
-        { x: "Feb", y: 9 },
-        { x: "March", y: 10 },
-        { x: "April", y: 9 }
-      ],
-      SAL: [
-        { x: "Aug", y: 8 },
-        { x: "Sept", y: 8 },
-        { x: "Nov", y: 5 },
-        { x: "Dec", y: 15 },
-        { x: "Jan", y: 7 },
-        { x: "Feb", y: 10 },
-        { x: "March", y: 10 },
-        { x: "April", y: 4 }
-      ],
-      TEMP: [
-        { x: "Aug", y: 5 },
-        { x: "Sept", y: 3 },
-        { x: "Nov", y: 6 },
-        { x: "Dec", y: 10 },
-        { x: "Jan", y: 7 },
-        { x: "Feb", y: 14 },
-        { x: "March", y: 10 },
-        { x: "April", y: 4 }
-      ],
-      WL: [
-        { x: "Aug", y: 15 },
-        { x: "Sept", y: 13 },
-        { x: "Nov", y: 10 },
-        { x: "Dec", y: 15 },
-        { x: "Jan", y: 7 },
-        { x: "Feb", y: 10 },
-        { x: "March", y: 3 },
-        { x: "April", y: 4 }
-      ]
-    };
+    fetch('http://192.168.254.110:3001/v1/waters.json')
+    .then((response) => response.json())
+    .then((responseJson) => {
 
+      this.setState({
+        isLoading: false,
+        dataSource: responseJson.data,
+        time: new Date().toLocaleString()
+      }, function(){
+
+      });
+      
+      let result = this.state.dataSource.map(
+        (key,index) => key
+      );
+      //console.log(result);
+
+      const items = new Object(result[result.length - 1]);
+      //console.log(items);
+      
+      this.getGraphData(items);
+    })
+    .catch((error) =>{
+      console.error(error);
+    });
+   
+  }
+
+  getGraphData(data) {
     if (this.props.navigation.state.params) {
       const subPage = this.props.navigation.state.params.subPage;
       this.setState({
@@ -178,6 +165,7 @@ class Water extends React.Component {
               <Text> Fish tank </Text>
             </View>
             <Chart dataProps={this.state.activeData} />
+            {console.log(this.state.activeData)}
           </View>
         </ScrollView>
 
