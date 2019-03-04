@@ -3,7 +3,8 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo";
 
 import Growth from "./subpages/plant/growth";
-import Moisture from "./subpages/plant/moisture";
+import Plants from "./subpages/plant/plants";
+import Fishes from "./subpages/plant/fishes";
 import DateCalendar from "./subpages/plant/date";
 import Footer from "./common/footer";
 
@@ -12,7 +13,7 @@ class Plant extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      activeTab: "moisture"
+      activeTab: "plant"
     }
     this.navigation = this.navigation.bind(this);
     this.renderPage = this.renderPage.bind(this);
@@ -27,17 +28,19 @@ class Plant extends React.Component {
   }
 
   renderPage(){
-    if(this.state.activeTab === "moisture"){
+    //plant
+    if(this.state.activeTab === "plant"){
       return(
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Moisture />
-      </View>
+          <Plants/>
+        </View>
       );
     }
 
+    //fish
     return(
-      <View style={{ flex: 1 }}>
-        <DateCalendar />
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Fishes/>
       </View>
     );
 
@@ -54,7 +57,7 @@ class Plant extends React.Component {
           end={[1, 1]}
           style={{ flex: 1 }}>
            <View style={{ justifyContent: "center", alignItems: "center",  width: "100%", height:60, backgroundColor: "#fff"  , flexDirection: "row"}}>
-                <Text style={{ fontSize: 24 }}> Plant Growth Development </Text>
+                <Text style={{ fontSize: 24 }}> Plant and Fish Growth </Text>
               </View>
             <View style={{ justifyContent: "center",  width: "100%", height: 30, backgroundColor: "#fff"  , flexDirection: "row"}}>
                 {/* <TouchableOpacity style={ this.state.activeTab === "growth" ?
@@ -65,21 +68,21 @@ class Plant extends React.Component {
                                   }>
                   <Text> Growth</Text>
                 </TouchableOpacity> */}
-                <TouchableOpacity style={ this.state.activeTab === "moisture" ?
+                <TouchableOpacity style={ this.state.activeTab === "plant" ?
                                   buttonStyleActive : buttonStyle
                                   }
                                   onPress={ () => {
-                                    this.setState({ activeTab: "moisture" }) }
+                                    this.setState({ activeTab: "plant" }) }
                                   }>
-                  <Text> Moisture</Text>
+                  <Text> Plant </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={ this.state.activeTab === "date" ?
+                <TouchableOpacity style={ this.state.activeTab === "fish" ?
                                   buttonStyleActive : buttonStyle
                                   }
                                   onPress={ () => {
-                                    this.setState({ activeTab: "date" }) }
+                                    this.setState({ activeTab: "fish" }) }
                                   }>
-                  <Text> Date</Text>
+                  <Text> Fish </Text>
                 </TouchableOpacity>
             </View>
 

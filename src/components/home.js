@@ -12,7 +12,6 @@ class Home extends React.Component {
     this.navigation = this.navigation.bind(this);
     this.state = {
       time: new Date().toLocaleString(),
-      moistureStatus: 10,
       phStatus: 6.5,
       waterStatus: 40,
       temperatureStatus: 5
