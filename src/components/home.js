@@ -4,7 +4,7 @@ import { LinearGradient } from "expo";
 // import { Icon } from "@ant-design/icons-react-native";
 import { StatusBar } from "react-native";
 import Footer from "./common/footer";
-import { CheckBox } from "native-base";
+import axios from "axios";
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,36 +24,33 @@ class Home extends React.Component {
     clearInterval(this.intervalID);
   }
   tick() {
-    return fetch('http://192.168.254.110:3001/v1/homes.json')
-    .then((response) => response.json())
-    .then((responseJson) => {
+    return fetch("http://159.89.211.119/v1/homes.json")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson.data,
+            time: new Date().toLocaleString()
+          },
+          function() {}
+        );
 
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson.data,
-        time: new Date().toLocaleString()
-      }, function(){
+        let result = this.state.dataSource.map((key, index) => key);
+        //console.log(result);
 
+        let items = new Object(result[result.length - 1]);
+        //console.log(items);
+
+        this.setState({
+          ph: items.ph,
+          temp: items.temp,
+          vol: items.vol
+        });
+      })
+      .catch(error => {
+        console.error(error);
       });
-      
-      let result = this.state.dataSource.map(
-        (key,index) => key
-      );
-      //console.log(result);
-
-      let items = new Object(result[result.length - 1]);
-      //console.log(items);
-
-      this.setState({
-        ph: items.ph,
-        temp: items.temp,
-        vol: items.vol
-      });
-      
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
   }
   static navigationOptions = {
     header: null

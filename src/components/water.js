@@ -9,8 +9,8 @@ class Water extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: "",
-      activeData: "",
+      data: [],
+      activeData: [],
       selectedTab: "PH"
     };
     this.navigation = this.navigation.bind(this);
@@ -23,32 +23,24 @@ class Water extends React.Component {
   };
 
   componentWillMount() {
-    fetch('http://192.168.254.110:3001/v1/waters.json')
-    .then((response) => response.json())
-    .then((responseJson) => {
+    fetch("http://159.89.211.119/v1/waters.json")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.data,
+          time: new Date().toLocaleString()
+        });
 
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson.data,
-        time: new Date().toLocaleString()
-      }, function(){
+        let result = this.state.dataSource.map((key, index) => key);
 
+        const items = new Object(result[result.length - 1]);
+
+        this.getGraphData(items);
+      })
+      .catch(error => {
+        console.error(error);
       });
-      
-      let result = this.state.dataSource.map(
-        (key,index) => key
-      );
-      //console.log(result);
-
-      const items = new Object(result[result.length - 1]);
-      //console.log(items);
-      
-      this.getGraphData(items);
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
-   
   }
 
   getGraphData(data) {
@@ -75,6 +67,7 @@ class Water extends React.Component {
   render() {
     const { buttonStyle, titleHeader } = style;
     const { buttonStyleActive } = activeStyle;
+    console.log("activeData", this.state.activeData);
     return (
       <LinearGradient
         colors={["#FFF", "#e6faff", "#b3f0ff", "#99ebff", "#80e5ff", "#66e0ff"]}
@@ -164,9 +157,8 @@ class Water extends React.Component {
               />
               <Text> Fish tank </Text>
             </View>
-            <Chart dataProps={this.state.activeData} />
-            {console.log(this.state.activeData)}
           </View>
+          <Chart dataProps={this.state.activeData} />
         </ScrollView>
 
         <Footer
