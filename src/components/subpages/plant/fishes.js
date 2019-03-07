@@ -28,13 +28,32 @@ class Fishes extends Component {
             {" "}
             Photo by Dominyk Lever on flickr.com{" "}
           </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              marginLeft: 20,
+              marginTop: 10,
+              marginBottom: 5
+            }}
+          >
+            Ideal Temperature Range:   22° -30° C
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            Plate Size in: 9 Months
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Popular, edible, warm-water aquaponics fish
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Easy to breed and fast growing
+          </Text>
         </View>
 
         <View style={infoContainer}>
-          <Text style={infoText}> Crappie </Text>
+          <Text style={infoText}> Cat Fish </Text>
           <View style={imageWrapper}>
             <Image
-              source={require("../../../assets/fishes/crappie1.jpg")}
+              source={require("../../../assets/fishes/catfish.jpg")}
               style={{
                 height: 100,
                 width: "70%",
@@ -46,6 +65,28 @@ class Fishes extends Component {
           <Text style={{ fontSize: 10, color: "gray", textAlign: "center" }}>
             {" "}
             Photo by Isaac M on flickr.com{" "}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              marginLeft: 20,
+              marginTop: 10,
+              marginBottom: 5
+            }}
+          >
+            Ideal Temperature Range:   25° – 30° C
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            Plate Size in: 5 – 10 Months
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Edible, popular aquaponics fish
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • High food conversion ratio makes them a fast growing fish
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Sensitive to water temperature, water quality, and pH
           </Text>
         </View>
 
@@ -66,6 +107,25 @@ class Fishes extends Component {
             {" "}
             Photo by Ty Williams on Unsplash{" "}
           </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              marginLeft: 20,
+              marginTop: 10,
+              marginBottom: 5
+            }}
+          >
+            Ideal Temperature Range:     18° 23° C
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            Ornamental, not typically eaten
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Ornamental, hardy, and attractive aquaponics fish
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Omnivorous, parasite-resistant, and lives a long time
+          </Text>
         </View>
 
         <View style={infoContainer}>
@@ -84,13 +144,32 @@ class Fishes extends Component {
           <Text style={{ fontSize: 10, color: "gray", textAlign: "center" }}>
             Photo by sanjiv nayak on Unsplash{" "}
           </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              marginLeft: 20,
+              marginTop: 10,
+              marginBottom: 5
+            }}
+          >
+            Ideal Temperature Range:     20° – 24° C
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            Ornamental, not typically eaten
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Small, hardy aquaponics fish
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Produces lots of waste despite its size
+          </Text>
         </View>
 
         <View style={infoContainer}>
-          <Text style={infoText}>Pacu </Text>
+          <Text style={infoText}>Crustaceans </Text>
           <View style={imageWrapper}>
             <Image
-              source={require("../../../assets/fishes/pacu1.jpg")}
+              source={require("../../../assets/fishes/Crustaceans.jpg")}
               style={{
                 height: 100,
                 width: "70%",
@@ -102,6 +181,42 @@ class Fishes extends Component {
           <Text style={{ fontSize: 10, color: "gray", textAlign: "center" }}>
             {" "}
             Photo by Simon Q on flickr.com
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              marginLeft: 20,
+              marginTop: 10,
+              marginBottom: 5
+            }}
+          >
+             Ideal TemperatureRange:
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+             prawns: 28° –31° C,
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+             lobster: 22° – 25° C,
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25, marginBottom: 5 }}>
+             oysters: 24° – 26° C 
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>Plate Size in:</Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            prawns: 6 – 12 Months
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+            lobster: 24 Months
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 20, marginBottom: 5 }}>
+            oysters: 24 Months
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>• Edible</Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Feed on organic plant matter
+          </Text>
+          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+            • Help to keep your tank clean
           </Text>
         </View>
 
