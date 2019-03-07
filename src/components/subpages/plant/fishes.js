@@ -43,8 +43,8 @@ class Fishes extends Component {
             style={{
               fontSize: 16,
 
-              marginLeft: "18%",
-              marginRight: "18%"
+              marginLeft: "15%",
+              marginRight: "15%"
             }}
           >
             Plate Size in: 9 Months
@@ -104,8 +104,8 @@ class Fishes extends Component {
             style={{
               fontSize: 16,
 
-              marginLeft: "18%",
-              marginRight: "18%"
+              marginLeft: "15%",
+              marginRight: "15%"
             }}
           >
             Plate Size in: 5 – 10 Months
@@ -174,9 +174,8 @@ class Fishes extends Component {
           <Text
             style={{
               fontSize: 16,
-              marginLeft: 20,
-              marginLeft: "18%",
-              marginRight: "18%"
+              marginLeft: "15%",
+              marginRight: "15%"
             }}
           >
             Ornamental, not typically eaten
