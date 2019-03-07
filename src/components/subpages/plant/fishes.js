@@ -30,7 +30,7 @@ class Fishes extends Component {
           </Text>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               marginLeft: 20,
               marginTop: 10,
               marginBottom: 5
@@ -38,13 +38,13 @@ class Fishes extends Component {
           >
             Ideal Temperature Range:   22° -30° C
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             Plate Size in: 9 Months
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Popular, edible, warm-water aquaponics fish
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Easy to breed and fast growing
           </Text>
         </View>
@@ -68,7 +68,7 @@ class Fishes extends Component {
           </Text>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               marginLeft: 20,
               marginTop: 10,
               marginBottom: 5
@@ -76,16 +76,16 @@ class Fishes extends Component {
           >
             Ideal Temperature Range:   25° – 30° C
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             Plate Size in: 5 – 10 Months
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Edible, popular aquaponics fish
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • High food conversion ratio makes them a fast growing fish
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Sensitive to water temperature, water quality, and pH
           </Text>
         </View>
@@ -109,7 +109,7 @@ class Fishes extends Component {
           </Text>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               marginLeft: 20,
               marginTop: 10,
               marginBottom: 5
@@ -117,13 +117,13 @@ class Fishes extends Component {
           >
             Ideal Temperature Range:     18° 23° C
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             Ornamental, not typically eaten
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Ornamental, hardy, and attractive aquaponics fish
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Omnivorous, parasite-resistant, and lives a long time
           </Text>
         </View>
@@ -146,7 +146,7 @@ class Fishes extends Component {
           </Text>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               marginLeft: 20,
               marginTop: 10,
               marginBottom: 5
@@ -154,13 +154,13 @@ class Fishes extends Component {
           >
             Ideal Temperature Range:     20° – 24° C
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             Ornamental, not typically eaten
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Small, hardy aquaponics fish
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Produces lots of waste despite its size
           </Text>
         </View>
@@ -184,7 +184,7 @@ class Fishes extends Component {
           </Text>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 16,
               marginLeft: 20,
               marginTop: 10,
               marginBottom: 5
@@ -192,30 +192,30 @@ class Fishes extends Component {
           >
              Ideal TemperatureRange:
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
              prawns: 28° –31° C,
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
              lobster: 22° – 25° C,
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25, marginBottom: 5 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25, marginBottom: 5 }}>
              oysters: 24° – 26° C 
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>Plate Size in:</Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>Plate Size in:</Text>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             prawns: 6 – 12 Months
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20 }}>
             lobster: 24 Months
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 20, marginBottom: 5 }}>
+          <Text style={{ fontSize: 16, marginLeft: 20, marginBottom: 5 }}>
             oysters: 24 Months
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>• Edible</Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>• Edible</Text>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Feed on organic plant matter
           </Text>
-          <Text style={{ fontSize: 12, marginLeft: 25 }}>
+          <Text style={{ fontSize: 16, marginLeft: 25 }}>
             • Help to keep your tank clean
           </Text>
         </View>
@@ -244,7 +244,7 @@ const styles = {
   infoText: {
     paddingTop: 5,
     paddingBottom: 5,
-    fontSize: 18,
+    fontSize: 20,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 10,

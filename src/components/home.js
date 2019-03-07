@@ -27,14 +27,11 @@ class Home extends React.Component {
     return fetch("http://159.89.211.119/v1/homes.json")
       .then(response => response.json())
       .then(responseJson => {
-        this.setState(
-          {
-            isLoading: false,
-            dataSource: responseJson.data,
-            time: new Date().toLocaleString()
-          },
-          function() {}
-        );
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.data,
+          time: new Date().toLocaleString()
+        });
 
         let result = this.state.dataSource.map((key, index) => key);
         //console.log(result);
@@ -158,7 +155,7 @@ class Home extends React.Component {
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
                 {this.state.ph}
               </Text>
-              <View>{this.iconStatus(this.state.ph, 7, 6)}</View>
+              <View>{this.iconStatus(this.state.ph, 7.5, 5.9)}</View>
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "PH" });
@@ -213,7 +210,7 @@ class Home extends React.Component {
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
                 {this.state.temp}
               </Text>
-              {this.iconStatus(this.state.temp, 35, 20)}
+              {this.iconStatus(this.state.temp, 36, 19)}
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "TEMP" });
