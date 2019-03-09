@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo";
 import { Switch } from "antd-mobile-rn";
 import Footer from "./common/footer";
+import Notifications from "./subpages/notifications";
 
 class Settings extends React.Component {
   constructor(props) {
@@ -12,14 +13,67 @@ class Settings extends React.Component {
       switch2: false
     };
     this.navigation = this.navigation.bind(this);
+    this.showNotifications = this.showNotifications.bind(this);
+    this.compareValues = this.compareValues.bind(this);
   }
 
   static navigationOptions = {
     header: null
   };
 
+  compareValues(value,max,min){
+    if(value >= max || value <= min){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidMount(){
+    fetch("http://159.89.211.119:80/v1/homes.json")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson.data,
+            time: new Date().toLocaleString()
+          },
+          function() {}
+        );
+
+        let result = this.state.dataSource.map((key, index) => key);
+        //console.log(result);
+
+        let items = new Object(result[result.length - 1]);
+        //console.log(items);
+        if( this.compareValues(items.ph,7,6) == true && this.compareValues(items.temp,35,20) == true && this.compareValues(items.wl,110,30) == true){
+          this.setState({
+            notif: "good"
+          })
+        }else{
+          this.setState({
+            notif: "warning"
+          })
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
   navigation(event) {
     this.props.navigation.navigate(event.navDestination);
+  }
+
+  showNotifications() {
+    if(this.state.switch2 === true){
+      return(
+        <View>
+          <Notifications blobProp={this.state.notif}/>
+        </View>
+      );
+    }
   }
 
   render() {
@@ -98,6 +152,7 @@ class Settings extends React.Component {
                   this.setState({ switch2: !this.state.switch2 });
                 }}
               />
+              {this.showNotifications()}
             </TouchableOpacity>
 
             {/* <TouchableOpacity

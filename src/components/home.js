@@ -5,6 +5,7 @@ import { LinearGradient } from "expo";
 import { StatusBar } from "react-native";
 import Footer from "./common/footer";
 import axios from "axios";
+import Notifications from "./subpages/notifications";
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class Home extends React.Component {
     clearInterval(this.intervalID);
   }
   tick() {
-    return fetch("http://159.89.211.119/v1/homes.json")
+
+    return fetch("http://159.89.211.119:80/v1/homes.json")
       .then(response => response.json())
       .then(responseJson => {
         this.setState(

@@ -13,6 +13,7 @@ class Chart extends React.Component {
   }
 
   render() {
+    console.log(this.props.dataProps)
     return (
       <View style={styles.container}>
         <View style={{ zIndex: 0 }}>

@@ -23,7 +23,7 @@ class Water extends React.Component {
   };
 
   componentWillMount() {
-    fetch("http://159.89.211.119/v1/waters.json")
+    fetch("http://159.89.211.119:80/v1/waters.json")
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -67,7 +67,7 @@ class Water extends React.Component {
   render() {
     const { buttonStyle, titleHeader } = style;
     const { buttonStyleActive } = activeStyle;
-    console.log("activeData", this.state.activeData);
+    //console.log("activeData", this.state.activeData);
     return (
       <LinearGradient
         colors={["#FFF", "#e6faff", "#b3f0ff", "#99ebff", "#80e5ff", "#66e0ff"]}
