@@ -6,10 +6,10 @@
     "slug": "Neptune",
     "sdkVersion": "27.0.0",
     "ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname"
+      "bundleIdentifier": "com.Igen.NeptuneMobile"
     },
     "android": {
-      "package": "com.lingonsalf.myapp",
+      "package": "com.Igen.NeptuneMobile",
       "versionCode": 2
     },
     "description": ""
