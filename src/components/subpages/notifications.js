@@ -25,8 +25,8 @@ class Notifications extends Component {
         <View>
           <Text style={headText}>Warning!</Text>
           <Text style={infoText}>Please make sure your aquaponics is still within maintainable level to gain better production.</Text>
-          <Text style={infoText}>> for PH level : 6 - 7</Text>
-          <Text style={infoText}>> for Water volume : 30% - 95%</Text>
+          <Text style={infoText}>> for PH level : 5.9 - 7.5</Text>
+          <Text style={infoText}>> for Water volume : 50% - 95%</Text>
           <Text style={infoText}>> for Temperature : 20 - 35 degree Celsius</Text>
             <Button
               onPress={() => {
@@ -46,8 +46,8 @@ class Notifications extends Component {
         <View>
           <Text style={headText}>Good Job!</Text>
           <Text style={infoText}>Keep your aquaponics in good health!</Text>
-          <Text style={infoText}>> for PH level : 6 - 7</Text>
-          <Text style={infoText}>> for Water volume : 30% - 95%</Text>
+          <Text style={infoText}>> for PH level : 5.9 - 7.5</Text>
+          <Text style={infoText}>> for Water volume : 50% - 95%</Text>
           <Text style={infoText}>> for Temperature : 20 - 35 degree Celsius</Text>
             <Button
               onPress={() => {

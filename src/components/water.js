@@ -23,7 +23,13 @@ class Water extends React.Component {
   };
 
   componentWillMount() {
-    fetch("http://159.89.211.119:80/v1/waters.json")
+    fetch("http://104.248.99.34:80/api/v1/graph",{
+      method: 'get',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
       .then(response => response.json())
       .then(responseJson => {
         this.setState({

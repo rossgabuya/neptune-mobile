@@ -30,14 +30,19 @@ class Settings extends React.Component {
   }
 
   componentDidMount(){
-    fetch("http://159.89.211.119:80/v1/homes.json")
+    fetch("http://104.248.99.34:80/api/v1/water", {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
       .then(response => response.json())
       .then(responseJson => {
         this.setState(
           {
             isLoading: false,
             dataSource: responseJson.data,
-            time: new Date().toLocaleString()
           },
           function() {}
         );
@@ -47,7 +52,7 @@ class Settings extends React.Component {
 
         let items = new Object(result[result.length - 1]);
         //console.log(items);
-        if( this.compareValues(items.ph,7,6) == true && this.compareValues(items.temp,35,20) == true && this.compareValues(items.wl,110,30) == true){
+        if( this.compareValues(items.ph, 7.5, 5.9) == true && this.compareValues(items.temp, 36, 19) == true && this.compareValues(items.wl,100,50) == true){
           this.setState({
             notif: "good"
           })

@@ -26,13 +26,18 @@ class Home extends React.Component {
   }
   tick() {
 
-    return fetch("http://159.89.211.119:80/v1/homes.json")
+    return fetch("http://104.248.99.34:80/api/v1/water", {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson.data,
-          time: new Date().toLocaleString()
+          dataSource: responseJson.data
         });
 
         let result = this.state.dataSource.map((key, index) => key);
@@ -44,7 +49,8 @@ class Home extends React.Component {
         this.setState({
           ph: items.ph,
           temp: items.temp,
-          vol: items.vol
+          vol: items.vol,
+          time: items.created_at
         });
       })
       .catch(error => {
@@ -185,7 +191,7 @@ class Home extends React.Component {
               <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }}>
                 {this.state.vol}%
               </Text>
-              <View>{this.iconStatus(this.state.vol, 110, 30)}</View>
+              <View>{this.iconStatus(this.state.vol, 100, 50)}</View>
               <TouchableOpacity
                 onPress={() => {
                   this.navProps("Water", { subPage: "WL" });
