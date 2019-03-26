@@ -5,7 +5,7 @@ import { LinearGradient } from "expo";
 import { StatusBar } from "react-native";
 import Footer from "./common/footer";
 import axios from "axios";
-import Notifications from "./subpages/notifications";
+import Developers from "./subpages/developers";
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class Home extends React.Component {
       time: new Date().toLocaleString(),
       phStatus: 6.5,
       waterStatus: 40,
-      temperatureStatus: 5
+      temperatureStatus: 5,
+      dataSource : []
     };
   }
   componentDidMount() {
@@ -136,14 +137,14 @@ class Home extends React.Component {
                 height: 150,
                 width: 150,
                 marginBottom: 30,
-                marginTop: 100,
+                marginTop: 80,
                 justifyContent: "center",
                 alignContent: "center"
               }}
             />
-            <Text style={{ flexDirection: "column", fontSize: 20 }}>
-              Neptune
-            </Text>
+           
+              <Developers/>
+            
           </View>
 
           <View style={{ marginBottom: 10, marginTop: 20, marginLeft: 20 }}>

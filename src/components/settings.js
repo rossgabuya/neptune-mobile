@@ -1,21 +1,28 @@
 import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, Image, ScrollView, TouchableOpacity, Modal, TouchableHighlight, Alert,Button} from "react-native";
 import { LinearGradient } from "expo";
 import { Switch } from "antd-mobile-rn";
 import Footer from "./common/footer";
 import Notifications from "./subpages/notifications";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       switch1: false,
-      switch2: false
+      switch2: false,
+      modalVisible: false,
     };
     this.navigation = this.navigation.bind(this);
     this.showNotifications = this.showNotifications.bind(this);
     this.compareValues = this.compareValues.bind(this);
   }
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
 
   static navigationOptions = {
     header: null
@@ -214,6 +221,69 @@ class Settings extends React.Component {
                   temperature.
                 </Text>
               </View>
+              <View style={{ justifyContent: "center", alignItems: "center" , borderColor:'#ddd',borderTopWidth:2}}>
+                <View>
+                  <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                      this.setModalVisible(!this.state.modalVisible);
+                    }}>
+                  <View style={{height:"100%",width: "100%",backgroundColor: "#fff", justifyContent: "center", alignItems: "center"}}>
+                  <Image
+                        source={require("../assets/icons/logoFinal.png")}
+                        style={{
+                          height: 100,
+                          width: 100,
+                          justifyContent: "center",
+                          alignContent: "center"
+                        }}
+                      />
+                    <Text style={styles.headText}>Neptune</Text>
+                    <Text style={{fontSize: 12}}>v1.0.0</Text>
+                    <Text style={{fontSize: 12,marginBottom: 15}}>by</Text>
+                    <Image
+                        source={require("../assets/logo/igen1.jpg")}
+                        style={{
+                          height: 80,
+                          width: 80,
+                          justifyContent: "center",
+                          alignContent: "center"
+                        }}
+                      />
+                    <Text style={styles.infoText}>Team I-Gen</Text>
+                    <Text style={{fontSize: 12, marginBottom:15}}>from</Text>
+                    <Image
+                        source={require("../assets/logo/school1.png")}
+                        style={{
+                          height: 80,
+                          width: 80,
+                          justifyContent: "center",
+                          alignContent: "center"
+                        }}
+                      />
+                    <Text style={styles.infoText}>Asian Institute of Computer Studies</Text>
+                    <View style={{marginTop:15}}>
+                      <Button
+                        onPress={() => {
+                          this.setModalVisible(!this.state.modalVisible);
+                        }}
+                        title="Close"
+                        color="#66e0ff"
+                        accessibilityLabel=""
+                      />
+                      </View>
+                      </View>
+                  </Modal>
+                  <Text
+                    onPress={() => {
+                      this.setModalVisible(true);
+                    }} style={{fontSize:20,color:"#595959"}}>
+                      Learn More <Icon color='#000' name="chevron-right" size={20} />
+                  </Text>
+                </View>
+              </View>
             </View>
 
             <View
@@ -282,6 +352,43 @@ const styles = {
     marginRight: 10,
     paddingRight: 5,
     paddingLeft: 5
+  },  
+  infoContainer: {
+    backgroundColor: "#fff",
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
+    paddingBottom: 10,
+    borderRadius: 10
+  },
+  headText :{
+    paddingTop: 5,
+    paddingBottom: 5,
+    fontSize: 32,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: "5%",
+    paddingLeft: 5,
+    justifyContent: "center",
+    textAlign: "center",
+    fontWeight: "bold"
+  },
+  infoText: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    fontSize: 18,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    paddingLeft: 5,
+    justifyContent: "center",
+    textAlign: "center"
+  },
+  imageWrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 };
 export default Settings;

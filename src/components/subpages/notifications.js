@@ -22,12 +22,14 @@ class Notifications extends Component {
     if(display == 'warning'){
       return(
       <View style={{height:"100%",width: "100%",backgroundColor: "#ffff00"}}>
-        <View>
+        <View style={{ justifyContent: "center", alignItems: "center" ,marginTop:"5%"}}>
+          <Icon name="exclamation-triangle" color="#000" size={150}/>
           <Text style={headText}>Warning!</Text>
           <Text style={infoText}>Please make sure your aquaponics is still within maintainable level to gain better production.</Text>
           <Text style={infoText}>> for PH level : 5.9 - 7.5</Text>
           <Text style={infoText}>> for Water volume : 50% - 95%</Text>
           <Text style={infoText}>> for Temperature : 20 - 35 degree Celsius</Text>
+          <View style={{marginLeft:25,marginRight:25,marginTop:30}}>
             <Button
               onPress={() => {
                 this.setModalVisible(!this.state.modalVisible);
@@ -37,18 +39,21 @@ class Notifications extends Component {
               accessibilityLabel=""
               style={{marginLeft:25,marginRight:25,marginTop:30}}
             />
+            </View>
         </View>
       </View>
       );
     }else{
       return(
       <View style={{height:"100%",width: "100%",backgroundColor: "#66ff66"}}>
-        <View>
+        <View style={{ justifyContent: "center", alignItems: "center" , marginTop:"5%"}}>
+          <Icon name="check-circle" color="#000" size={150}/>
           <Text style={headText}>Good Job!</Text>
           <Text style={infoText}>Keep your aquaponics in good health!</Text>
           <Text style={infoText}>> for PH level : 5.9 - 7.5</Text>
           <Text style={infoText}>> for Water volume : 50% - 95%</Text>
           <Text style={infoText}>> for Temperature : 20 - 35 degree Celsius</Text>
+          <View style={{marginLeft:25,marginRight:25,marginTop:30}}>
             <Button
               onPress={() => {
                 this.setModalVisible(!this.state.modalVisible);
@@ -58,6 +63,7 @@ class Notifications extends Component {
               accessibilityLabel=""
               style={{marginLeft:"0.3em",marginRight:"0.3em",marginTop:30}}
             />
+            </View>
         </View>
       </View>
       );
@@ -106,7 +112,7 @@ const styles = {
     fontSize: 32,
     marginLeft: 10,
     marginRight: 10,
-    marginTop: "25%",
+    marginTop: "5%",
     paddingLeft: 5,
     justifyContent: "center",
     textAlign: "center",

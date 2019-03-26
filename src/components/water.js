@@ -11,11 +11,14 @@ class Water extends React.Component {
     this.state = {
       data: [],
       activeData: [],
-      selectedTab: "PH"
+      activeDataLong:[],
+      selectedTab: "PH",
+      min: 5.9 , max: 7.5
     };
     this.navigation = this.navigation.bind(this);
     this.categoryChoice = this.categoryChoice.bind(this);
     this.getGraphData = this.getGraphData.bind(this);
+    this.getTextData = this.getTextData.bind(this);
   }
 
   static navigationOptions = {
@@ -35,6 +38,7 @@ class Water extends React.Component {
         this.setState({
           isLoading: false,
           dataSource: responseJson.data,
+          dataSourceLong: responseJson.data_long,
           time: new Date().toLocaleString()
         });
 
@@ -43,10 +47,57 @@ class Water extends React.Component {
         const items = new Object(result[result.length - 1]);
 
         this.getGraphData(items);
+
+        let resultLong = this.state.dataSourceLong.map((key, index) => key);
+
+        const itemsLong = new Object(resultLong[resultLong.length - 1]);
+
+        this.getTextData(itemsLong);
       })
       .catch(error => {
         console.error(error);
       });
+  }
+
+  iconStatus = (status, above, less) => {
+    return status >= above || status <= less ? (
+      <View>
+        <Image
+          source={require("../assets/statusLogo/xButton.png")}
+          style={{
+            height: 30,
+            width: 30,
+            marginTop: 5,
+            marginRight: 15
+          }}
+        />
+      </View>
+    ) : (
+      <View>
+        <Image
+          source={require("../assets/statusLogo/checkButton.png")}
+          style={{
+            height: 35,
+            width: 35,
+            marginTop: 5,
+            marginRight: 15
+          }}
+        />
+      </View>
+    );
+  };
+
+  getTextData(dataLong) {
+    if (this.props.navigation.state.params) {
+      const subPage = this.props.navigation.state.params.subPage;
+      this.setState({
+        dataLong: dataLong,
+        activeDataLong: dataLong[subPage],
+        selectedTab: subPage
+      });
+    } else {
+      this.setState({ dataLong:dataLong,activeDataLong: dataLong["PH"] });
+    }
   }
 
   getGraphData(data) {
@@ -67,13 +118,13 @@ class Water extends React.Component {
   }
 
   categoryChoice(event) {
-    this.setState({ activeData: this.state.data[event], selectedTab: event });
+    this.setState({ activeData: this.state.data[event], activeDataLong : this.state.dataLong[event] ,selectedTab: event });
   }
 
   render() {
-    const { buttonStyle, titleHeader } = style;
+    const { buttonStyle, titleHeader, notifContainer} = style;
     const { buttonStyleActive } = activeStyle;
-    //console.log("activeData", this.state.activeData);
+    console.log("activeDataLong", this.state.activeDataLong);
     return (
       <LinearGradient
         colors={["#FFF", "#e6faff", "#b3f0ff", "#99ebff", "#80e5ff", "#66e0ff"]}
@@ -108,6 +159,7 @@ class Water extends React.Component {
             }
             onPress={() => {
               this.categoryChoice("PH");
+              this.setState({ min: 5.9 , max: 7.5 });
             }}
           >
             <Text> PH Level</Text>
@@ -133,6 +185,7 @@ class Water extends React.Component {
             }
             onPress={() => {
               this.categoryChoice("TEMP");
+              this.setState({ min: 20 , max: 35 });
             }}
           >
             <Text> Temperature</Text>
@@ -144,6 +197,7 @@ class Water extends React.Component {
             }
             onPress={() => {
               this.categoryChoice("WL");
+              this.setState({ min: 50 , max: 95 });
             }}
           >
             <Text> Water Level </Text>
@@ -165,6 +219,30 @@ class Water extends React.Component {
             </View>
           </View>
           <Chart dataProps={this.state.activeData} />
+
+          <View style={{ marginBottom: 10, marginTop: 20, marginLeft: 20 }}>
+            <Text style={{ flexDirection: "column", fontSize: 25 }}>
+              Monthly Average Reading (Jan - Jun)
+            </Text>
+          </View>
+
+          <View style={{ marginBottom: 30, marginTop: 20}}>
+        {this.state.activeDataLong.map((mon,val) =>  
+            <View style={notifContainer}  key={val.toString()}>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={{ flex: 1, fontSize: 25, marginLeft: 10 }}>
+                {mon.month}
+              </Text>
+              <Text style={{ fontSize: 25, marginTop: 5, marginRight: 15 }} >
+                {mon.value}{this.state.selectedTab === "WL" ? "%" : ""}
+              </Text>
+
+              <View>{this.iconStatus(mon.value, this.state.max, this.state.min)}</View>
+            </View>
+            </View>
+          )}
+
+        </View>
         </ScrollView>
 
         <Footer
@@ -177,6 +255,16 @@ class Water extends React.Component {
 }
 
 const style = {
+  notifContainer: {
+    backgroundColor: "#fff",
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    paddingRight: 15,
+    paddingLeft:15,
+    paddingBottom: 10,
+    borderRadius: 10
+  },
   buttonStyle: {
     flex: 1,
     justifyContent: "center",
